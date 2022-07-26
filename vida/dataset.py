@@ -18,8 +18,6 @@ import torchvision
 import torchaudio
 from torch.utils.data import Dataset
 from scipy.signal import fftconvolve
-from pyroomacoustics.experimental.rt60 import measure_rt60
-
 
 def compute_spectrogram(audio_data, log=False, use_mag=False, use_phase=False, use_complex=False):
     def safe_log10(x, eps=1e-10):
@@ -43,7 +41,7 @@ def compute_spectrogram(audio_data, log=False, use_mag=False, use_phase=False, u
     else:
         raise ValueError
 
-    return 
+    return spectrogram
 
 
 def to_tensor(v):

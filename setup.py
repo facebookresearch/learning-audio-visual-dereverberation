@@ -14,6 +14,7 @@ setup(
         'vida',
     ],
     install_requires=[
+        'speechbrain',
         'torch',
         'numpy>=1.16.1',
         'yacs>=0.1.5',
@@ -32,7 +33,9 @@ setup(
         'notebook',
         'astropy',
         'scikit-image',
+        'speechmetrics @ git+https://github.com/aliutkus/speechmetrics',
         'pesq',
+        'tensorboard',
         'torchaudio',
         'torchvision'
     ],
