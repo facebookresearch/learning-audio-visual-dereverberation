@@ -25,7 +25,10 @@ pip install -e .
 ```angular2html
 py vida/trainer.py --model-dir data/models/vida  --num-channel 2 --use-depth --use-rgb --log-mag --no-mask --phase-loss sin --phase-weight 0.1 --use-triplet-loss --exp-decay --triplet-margin 0.5 --mean-pool-visual --overwrite
 ```
-2. Evaluation (instructions coming)
+2. Evaluation 
+```angular2html
+py vida/evaluator.py --pretrained-path data/models/vida/best_val.pth --num-channel 2  --log-mag --no-mask --est-pred --use-rgb --use-depth --mean-pool-visual --eval-dereverb
+```
 
 
 ## Data

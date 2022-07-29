@@ -71,7 +71,7 @@ def load_spkcfg(files, split):
             print(f"loading...{spkrec_config}")
         return data['pos'], data['neg']
     else:
-        with open("data/sounds/speech/LibriSpeech/SPEAKERS.TXT") as f:
+        with open("data/LibriSpeech/SPEAKERS.TXT") as f:
             content = f.readlines()
         id2sex = {}
         for line in content[12:]:
@@ -114,13 +114,13 @@ def load_spkcfg(files, split):
 
 def load_noise(split):
     splitmap = {"train": "tr", "val": "cv", "val-mini": "cv", "test-unseen": "tt", "test-seen": "tt"}
-    noise_cache_path = os.path.join('data/sounds/speech/wham_noise', splitmap[split], "noise.pkl")
+    noise_cache_path = os.path.join('data/wham_noise', splitmap[split], "noise.pkl")
     if os.path.exists(noise_cache_path):
         with open(noise_cache_path, 'rb') as fo:
             data = pickle.load(fo)
         noise_pool = data['noise']
     else:
-        noise_files = sorted(glob.glob(os.path.join('data/sounds/speech/wham_noise', splitmap[split], "*.wav")))
+        noise_files = sorted(glob.glob(os.path.join('data/wham_noise', splitmap[split], "*.wav")))
         noise_files = np.random.choice(noise_files, 600)
         noise_list = []
         for noise_file in tqdm(noise_files):
